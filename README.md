@@ -1,2 +1,5 @@
-# skinny2018
-Cryptanalysis of 10-round SKINNY-128-128 (SKINNY 2018-2019 Competition)
+# Cryptanalysis of 10-round SKINNY-128-128 (SKINNY 2018-2019 Competition)
+
+This repository contains information about cryptanalysis of the tweakable block cipher SKINNY-128-128 reduced to 10 rounds. This target was suggested by [SKINNY 2018-2019 Cryptanalysis Competition](https://sites.google.com/site/skinnycipher/cryptanalysis-competition/2018-2019-competition). The competition provides an encryption of a known book containing 2<sup>20</sup> blocks. The goal is to recover the secret key.
+
+The attack used to break the 10-round version is described in [writeup.pdf](writeup.pdf). In brief, it is a second-order truncated differential attack. Equivalently, it is an integral cryptanalysis. For particular quadruples of plaintexts differing only in the last two bytes, the 9-th byte of the state after 6 encryption rounds xor-sums to zero. This state byte can be computed from the ciphertext and 6 bytes of the master key. These bytes of the key can be found by an exhaustive search that verifies the zero-sum property for several such plaintext-ciphertext quadruples.
